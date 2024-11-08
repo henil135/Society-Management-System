@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './component/Login';
@@ -6,9 +7,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import EnterOtp from './component/EnterOtp';
 import ResetPassword from './component/ResetPassword';
 import Home from './pages/Home';
+import Signup from './component/Signup.js'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.bundle.js'
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Home from './pages/Home.js';
 
-function App() {
+
+export default function App() {
   return (
+
     <div className="d-flex">
       <BrowserRouter>
         <Routes>
@@ -18,9 +26,13 @@ function App() {
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/home/*" element={<Home />} />
         </Routes>
+    <div className="app">
+      <BrowserRouter>
+          <Routes>
+            <Route element={<Signup />} path='/' />
+            <Route element={<Home />} path='/home/*' />
+          </Routes>
       </BrowserRouter>
     </div>
   );
 }
-
-export default App;
