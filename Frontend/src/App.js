@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Login from './component/Login';
+import ForgotPassword from './component/ForgotPassword'; // Create this component
+import 'bootstrap/dist/css/bootstrap.min.css';
+import EnterOtp from './component/EnterOtp';
+import ResetPassword from './component/ResetPassword';
+import Home from './pages/Home';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code>Henil Patel
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="d-flex">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/enter-otp" element={<EnterOtp />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
+          <Route path="/home/*" element={<Home />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
